@@ -66,7 +66,7 @@ public class MusicOrganizer
      */
     public void checkIndex(int index)
     {
-        if (validIndex(index) == true)
+        if (validIndex(index) == false)
         {
             System.out.println("ERROR Debe introducir un numero entre 0 y " + (files.size()-1));
         }

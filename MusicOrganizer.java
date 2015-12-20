@@ -10,6 +10,8 @@ public class MusicOrganizer
 {
     // An ArrayList for storing the file names of music files.
     private ArrayList<String> files;
+    
+    private boolean indiceValido;
         
     /**
      * Create a MusicOrganizer
@@ -43,7 +45,7 @@ public class MusicOrganizer
      */
     public void listFile(int index)
     {
-        if(index >= 0 && index < files.size()) {
+        if(validIndex(index) == true) {
             String filename = files.get(index);
             System.out.println(filename);
         }
@@ -55,7 +57,7 @@ public class MusicOrganizer
      */
     public void removeFile(int index)
     {
-        if(index >= 0 && index < files.size()) {
+        if(validIndex(index) == true) {
             files.remove(index);
         }
     }
@@ -64,9 +66,26 @@ public class MusicOrganizer
      */
     public void checkIndex(int index)
     {
-        if (index < 0 || index >= files.size())
+        if (validIndex(index) == true)
         {
             System.out.println("ERROR Debe introducir un numero entre 0 y " + (files.size()-1));
         }
+    }
+    /**
+     * Metodo que devuelve un valor booleano dependiendo de si el indice introducido
+     * es valido o no.
+     */
+    public boolean validIndex(int index)
+    {
+         if (index < 0 || index >= files.size())
+         {
+            indiceValido = false;
+            return indiceValido;
+         }
+         else
+         {
+            indiceValido = true;
+            return indiceValido;
+         }
     }
 }
